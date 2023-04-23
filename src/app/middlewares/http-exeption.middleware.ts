@@ -9,7 +9,7 @@ export default function httpExeptionMiddleware(
   next: NextFunction
 ) {
   const statusCode = err.statusCode ?? 500;
-  const message = err.statusCode ? err.message : 'Internal server error.'
+  const message = err.statusCode ? err.messages : 'Internal server error.';
 
   return res.status(statusCode).json({ message });
 }
