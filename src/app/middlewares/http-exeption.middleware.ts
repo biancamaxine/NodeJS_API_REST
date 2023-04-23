@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 
-import HttpExeption from '../helpers/http-exeption.helper';
+import { HttpExeption } from '../helpers/http-exeption.helper';
 
 export default function httpExeptionMiddleware(
   err: Error & HttpExeption,

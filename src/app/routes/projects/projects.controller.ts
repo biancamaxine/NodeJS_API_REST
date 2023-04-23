@@ -1,4 +1,5 @@
 import { Request, Response } from 'express'
+import { HttpExeption } from '../../helpers/http-exeption.helper';
 
 export const POST = (req: Request, res: Response) => {
   return res.json({ message: 'this is a POST request.' });
