@@ -1,18 +1,23 @@
-import { Request, Response } from 'express'
-import { HttpExeption } from '../../helpers/http-exeption.helper';
+import { Request, Response } from 'express';
 
-export const POST = (req: Request, res: Response) => {
-  return res.json({ message: 'this is a POST request.' });
+import { service } from './projects.service';
+
+export const POST = async(req: Request, res: Response) => {
+  const message = await service.create(req.body);
+  return res.status(201).json({ message });
 }
 
-export const GET = (req: Request, res: Response) => {
-  return res.json({ message: 'this is a GET request.' });
+export const GET = async (req: Request, res: Response) => {
+  const projects = await service.read(req.params.id, req.query);
+  return res.json(projects);
 }
 
-export const PATCH = (req: Request, res: Response) => {
-  return res.json({ message: 'this is a PATCH request.' });
+export const PATCH = async (req: Request, res: Response) => {
+  const message = await service.update(req.params.id, req.body);
+  return res.json({ message });
 }
 
-export const DELETE = (req: Request, res: Response) => {
-  return res.json({ message: 'this is a DELETE request.' });
+export const DELETE = async (req: Request, res: Response) => {
+  const message = await service.delete(req.params.id);
+  return res.json({ message });
 }
