@@ -4,6 +4,11 @@
   "main": "index.js",
   "author": "biancamaxine <bianca.maxine.dev@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node dist/server.js",
+    "build": "tsc",
+    "dev": "nodemon --exec ts-node src/server.ts"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
